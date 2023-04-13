@@ -1,0 +1,6 @@
+// Place your settings in this file to overwrite the default settings
+{% if vscode_settings is mapping -%}
+{{ vscode_settings | to_nice_json }}
+{% else -%}
+{{ '{}' }}
+{% endif -%}

@@ -1,0 +1,65 @@
+---
+- name: Configure host.
+  hosts: all
+
+  vars_files:
+    - config.yml
+
+  pre_tasks:
+    - name: Include playbook configuration.
+      include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/config.yml"
+      tags: ["always"]
+
+  roles:
+    - role: elliotweiser.osx-command-line-tools
+    - role: geerlingguy.mac.homebrew
+      tags: ["homebrew"]
+    - role: geerlingguy.dotfiles
+      when: configure_dotfiles
+      tags: ["dotfiles"]
+    - role: geerlingguy.mac.dock
+      when: configure_dock
+      tags: ["dock"]
+    - role: gantsign.oh-my-zsh
+      users:
+        - username: "{{ lookup('env', 'USER') }}"
+      tags: ["ohmyzsh"]
+    - role: gantsign.visual-studio-code-extensions
+      users:
+        - username: "{{ lookup('env', 'USER') }}"
+          visual_studio_code_extensions: "{{ vscode_extensions }}"
+          visual_studio_code_extensions_absent: "{{ vscode_extensions_absent }}"
+      tags: ["vscode", "vscode-extensions"]
+
+  tasks:
+    - import_tasks: tasks/sudoers.yml
+      when: configure_sudoers
+      tags: ["sudoers"]
+
+    - import_tasks: tasks/terminal.yml
+      when: configure_terminal
+      tags: ["terminal"]
+
+    - import_tasks: tasks/osx.yml
+      when: configure_osx
+      tags: ["osx"]
+
+    - import_tasks: tasks/extra-packages.yml
+      tags: ["extra-packages"]
+
+    - import_tasks: tasks/homebrew.yml
+      tags: ["homebrew"]
+
+    - import_tasks: tasks/vscode-settings.yml
+      tags: ["vscode", "vscode-settings"]
+
+    - name: Run post-provision task files in a block.
+      tags: ["post"]
+      block:
+        - name: Run configured post-provision ansible task files.
+          include_tasks: "{{ outer_item }}"
+          loop_control:
+            loop_var: outer_item
+          with_fileglob: "{{ post_provision_tasks | default(omit) }}"

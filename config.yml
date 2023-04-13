@@ -1,0 +1,193 @@
+---
+downloads: ~/.ansible-downloads/
+
+configure_dotfiles: true
+configure_terminal: true
+configure_osx: true
+oh_my_zsh_write_zshrc: false
+
+# Set to 'true' to configure the Dock via dockutil.
+configure_dock: true
+dockitems_remove:
+  - Launchpad
+  - TV
+  - Podcasts
+  - "App Store"
+  - News
+  - Music
+  - Notes
+  - Reminders
+  - Contacts
+  - Calendar
+  - FaceTime
+  - Photos
+  - Maps
+  - Mail
+  - Messages
+  - Safari
+  - Freeform
+
+dockitems_persist:
+  - name: "iTerm"
+    path: "/Applications/iTerm.app/"
+    pos: 1
+  - name: "System Settings"
+    path: "/Applications/System Settings.app/"
+    pos: 2
+
+configure_sudoers: false
+sudoers_custom_config: ""
+# Example:
+# sudoers_custom_config: |
+#   # Allow users in admin group to use sudo with no password.
+#   %admin ALL=(ALL) NOPASSWD: ALL
+
+dotfiles_repo: https://github.com/Y0sh1dk/dotfiles.git
+dotfiles_repo_accept_hostkey: true
+dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
+dotfiles_files:
+  - .zshrc
+  - .gitignore
+  - .gitconfig
+  - .inputrc
+  - .osx
+  - .vimrc
+  - .functions
+  - .aliases
+  - com.googlecode.iterm2.plist
+
+homebrew_installed_packages:
+  # - ansible # Installed via Pip.
+  - autoconf
+  - bash-completion
+  - doxygen
+  - gettext
+  - git
+  - github/gh/gh
+  - go
+  - gpg
+  - httpie
+  - iperf
+  - libevent
+  - sqlite
+  - mcrypt
+  - nmap
+  - node
+  - nvm
+  - php
+  - ssh-copy-id
+  - cowsay
+  - readline
+  - openssl
+  - pv
+  - wget
+  - wrk
+  - zsh
+  - pokemonsay
+  - git-extras
+  - gomplate
+  - kubectl
+  - kubectx
+  - helm
+  - helmfile
+  - htop
+  - jq
+  - yq
+  - k9s
+  - minikube
+  - neovim
+  - ansible-lint
+  - shfmt
+
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+  - possatti/possatti
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - chromedriver
+  - docker
+  - firefox
+  - google-chrome
+  - slack
+  - transmit
+  - iterm2
+  - visual-studio-code
+  - spotify
+  - 1password
+  - rectangle
+  - stats
+  - amazon-workspaces
+  - adobe-acrobat-reader
+  - google-drive
+  - meld
+  - postman
+  - todoist
+  - whatsapp
+  - zoom
+
+# vs code
+vscode_extensions:
+  - ms-python.python
+  - redhat.ansible
+  - hashicorp.terraform
+  - ms-kubernetes-tools.vscode-kubernetes-tools
+  - redhat.vscode-yaml
+  - esbenp.prettier-vscode
+  - dbaeumer.vscode-eslint
+  - ms-azuretools.vscode-docker
+  - eamodio.gitlens
+  - pkief.material-icon-theme
+  - formulahendry.auto-rename-tag
+  - christian-kohler.path-intellisense
+  - golang.go
+  - wholroyd.jinja
+  - oderwat.indent-rainbow
+  - mhutchie.git-graph
+  - mikestead.dotenv
+  - ms-vscode.vscode-typescript-next
+  - foxundermoon.shell-format
+  - timonwong.shellcheck
+  - actboy168.tasks
+
+vscode_extensions_absent: []
+
+vscode_settings:
+  {
+    "editor.rulers": [80, 100, 120],
+    "editor.renderWhitespace": "all",
+    "window.zoomLevel": 1,
+    "[yaml]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "editor.formatOnSave": true,
+  }
+vscode_settings_overwrite: true
+
+vscode_keybindings: []
+vscode_keybindings_overwrite: true
+
+osx_script: "~/.osx --no-restart"
+
+# Install packages from other package managers.
+# Note: You are responsible for making sure the required package managers are
+# installed, eg. through homebrew.
+composer_packages: []
+# - name: drush
+#   state: present # present/absent, default: present
+#   version: "^8.1" # default: N/A
+gem_packages: []
+# - name: bundler
+#   state: present # present/absent/latest, default: present
+#   version: "~> 1.15.1" # default: N/A
+npm_packages: []
+# - name: webpack
+#   state: present # present/absent/latest, default: present
+#   version: "^2.6" # default: N/A
+pip_packages: []
+# - name: mkdocs
+#   state: present # present/absent/latest, default: present
+#   version: "0.16.3" # default: N/A
+
+# Glob pattern to ansible task files to run after all other tasks are finished.
+post_provision_tasks: []

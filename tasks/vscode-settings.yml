@@ -1,0 +1,36 @@
+---
+- name: Create config directories for users
+  ansible.builtin.file:
+    path: "/Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code"
+    state: directory
+    owner: "{{ lookup('env', 'USER') }}"
+  when: "vscode_settings is defined and vscode_settings not in ({}, '', None, omit)"
+
+- name: Create settings directory
+  ansible.builtin.file:
+    path: "/Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User"
+    state: directory
+    owner: "{{ lookup('env', 'USER') }}"
+  when: "vscode_settings is defined and vscode_settings not in ({}, '', None, omit)"
+
+- name: Write settings
+  ansible.builtin.template:
+    src: vscode.settings.j2
+    dest: "/Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/settings.json"
+    force: '{{ vscode_settings_overwrite | default(False) | bool }}'
+    owner: "{{ lookup('env', 'USER') }}"
+  when: >-
+    (vscode_settings_overwrite | default(False) | bool)
+    or (vscode_settings is defined
+    and vscode_settings not in ({}, '', None, omit))
+
+- name: Write keybindings
+  ansible.builtin.template:
+    src: vscode.keybindings.j2
+    dest: "/Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/keybindings.json"
+    force: '{{ vscode_keybindings | default(False) | bool }}'
+    owner: "{{ lookup('env', 'USER') }}"
+  when: >-
+    (vscode_keybindings_overwrite | default(False) | bool)
+    or (vscode_keybindings_overwrite is defined
+    and vscode_keybindings_overwrite not in ([], '', None, omit))

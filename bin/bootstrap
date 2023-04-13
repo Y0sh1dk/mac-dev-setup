@@ -1,0 +1,7 @@
+#!/bin/sh
+
+xcode-select --install
+echo "A" | /usr/sbin/softwareupdate --install-rosetta
+export PATH="$HOME/Library/Python/3.9/bin:/opt/homebrew/bin:$PATH"
+sudo pip3 install --upgrade pip
+pip3 install ansible
