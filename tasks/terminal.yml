@@ -39,3 +39,21 @@
     dest: /Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom/themes/powerlevel10k
     clone: true
     update: true
+
+# Fonts
+- name: Download powerlevel10k fonts
+  git:
+    repo: https://github.com/romkatv/powerlevel10k-media
+    dest: "/tmp/powerlevel10k-fonts"
+    clone: true
+    update: true
+
+- name: Install powerlevel10k fonts
+  copy:
+    src: "/tmp/powerlevel10k-fonts/{{ item }}"
+    dest: "/Users/{{ lookup('env', 'USER') }}/Library/Fonts/{{ item }}"
+  loop:
+    - MesloLGS NF Regular.ttf
+    - MesloLGS NF Bold.ttf
+    - MesloLGS NF Italic.ttf
+    - MesloLGS NF Bold Italic.ttf
