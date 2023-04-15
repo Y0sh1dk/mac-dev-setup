@@ -57,3 +57,9 @@
     - MesloLGS NF Bold.ttf
     - MesloLGS NF Italic.ttf
     - MesloLGS NF Bold Italic.ttf
+
+# ohmyzsh custom scripts
+- name: Install iTerm2-ssh script
+  copy:
+    src: iTerm2-ssh.zsh
+    dest: /Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom/iTerm2-ssh.zsh
