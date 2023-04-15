@@ -102,6 +102,10 @@ homebrew_installed_packages:
   - ansible-lint
   - shfmt
   - fortune
+  - terraform
+  - tflint
+  - terraform-docs
+  - checkov
 
 homebrew_taps:
   - homebrew/core
