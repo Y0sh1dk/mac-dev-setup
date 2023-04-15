@@ -44,9 +44,11 @@ sudoers_custom_config: ""
 
 dotfiles_repo: https://github.com/Y0sh1dk/dotfiles.git
 dotfiles_repo_accept_hostkey: true
-dotfiles_repo_local_destination: ~/Development/GitHub/dotfiles
+dotfiles_repo_local_destination: ~/Code/dotfiles
 dotfiles_files:
   - .zshrc
+  - .zlogin
+  - .p10k.zsh
   - .gitignore
   - .gitconfig
   - .inputrc
@@ -90,6 +92,7 @@ homebrew_installed_packages:
   - kubectx
   - helm
   - helmfile
+  - skaffold
   - htop
   - jq
   - yq
@@ -98,6 +101,7 @@ homebrew_installed_packages:
   - neovim
   - ansible-lint
   - shfmt
+  - fortune
 
 homebrew_taps:
   - homebrew/core

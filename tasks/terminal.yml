@@ -10,6 +10,7 @@
     line: "{{ zsh_path.stdout }}"
   become: true
 
+# Plugins
 - name: Install zsh-autosuggestions
   git:
     repo: https://github.com/zsh-users/zsh-autosuggestions
@@ -28,5 +29,13 @@
   git:
     repo: https://github.com/zsh-users/zsh-history-substring-search
     dest: /Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+    clone: true
+    update: true
+
+# Theme
+- name: Install powerlevel10k
+  git:
+    repo: https://github.com/romkatv/powerlevel10k
+    dest: /Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom/themes/powerlevel10k
     clone: true
     update: true
