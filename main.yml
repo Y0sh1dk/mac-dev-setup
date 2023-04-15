@@ -55,11 +55,5 @@
     - import_tasks: tasks/vscode-settings.yml
       tags: ["vscode", "vscode-settings"]
 
-    - name: Run post-provision task files in a block.
-      tags: ["post"]
-      block:
-        - name: Run configured post-provision ansible task files.
-          include_tasks: "{{ outer_item }}"
-          loop_control:
-            loop_var: outer_item
-          with_fileglob: "{{ post_provision_tasks | default(omit) }}"
+    - import_tasks: tasks/ssh.yml
+      tags: ["ssh"]
