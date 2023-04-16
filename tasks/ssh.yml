@@ -1,31 +1,31 @@
 ---
 - name: Create 1Password directory
-  file:
-    path: "{{ lookup('env', 'HOME') }}/.1password"
+  ansible.builtin.file:
+    path: "{{ ansible_facts['user_dir'] }}/.1password"
     state: directory
 
 - name: Create symlink for 1Password ssh-agent socket
-  file:
-    src: "{{ lookup('env', 'HOME') }}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-    dest: "{{ lookup('env', 'HOME') }}/.1password/agent.sock"
+  ansible.builtin.file:
+    src: "{{ ansible_facts['user_dir'] }}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+    dest: "{{ ansible_facts['user_dir'] }}/.1password/agent.sock"
     state: link
 
 - name: Ensure ssh folder exists
-  file:
-    path: "{{ lookup('env', 'HOME') }}/.ssh"
+  ansible.builtin.file:
+    path: "{{ ansible_facts['user_dir'] }}/.ssh"
     state: directory
-    mode: 0700
+    mode: "0700"
 
 - name: Ensure ssh config file exists
-  copy:
+  ansible.builtin.copy:
     content: ""
-    dest: "{{ lookup('env', 'HOME') }}/.ssh/config"
+    dest: "{{ ansible_facts['user_dir'] }}/.ssh/config"
     force: false
 
 - name: Update ssh config to add 1Password ssh-agent
-  blockinfile:
-    path: "{{ lookup('env', 'HOME') }}/.ssh/config"
+  ansible.builtin.blockinfile:
+    path: "{{ ansible_facts['user_dir'] }}/.ssh/config"
     marker: "### {mark} ANSIBLE MANAGED BLOCK ###"
     block: |
       Host *
-        IdentityAgent "{{ lookup('env', 'HOME') }}/.1password/agent.sock"
+        IdentityAgent "{{ ansible_facts['user_dir'] }}/.1password/agent.sock"
