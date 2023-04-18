@@ -158,6 +158,7 @@ vscode_extensions:
   - foxundermoon.shell-format
   - timonwong.shellcheck
   - actboy168.tasks
+  - yoavbls.pretty-ts-errors
 
 vscode_extensions_absent: []
 
