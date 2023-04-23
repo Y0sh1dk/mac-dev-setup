@@ -90,6 +90,7 @@ homebrew_installed_packages:
   - gomplate
   - kubectl
   - kubectx
+  - krew
   - helm
   - helmfile
   - skaffold
@@ -134,6 +135,20 @@ homebrew_cask_apps:
   - todoist
   - whatsapp
   - zoom
+  - discord
+  - element
+
+# Krew
+krew_indexes:
+  - name: default
+    url: https://github.com/kubernetes-sigs/krew-index.git
+  - name: awesome-kubectl-plugins
+    url: https://github.com/ishantanu/awesome-kubectl-plugins.git
+
+krew_plugins:
+  - access-matrix
+  - awesome-kubectl-plugins/node-shell
+  - awesome-kubectl-plugins/mtail
 
 # vs code
 vscode_extensions:

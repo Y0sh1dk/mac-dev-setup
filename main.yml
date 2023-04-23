@@ -33,6 +33,10 @@
       tags: ["vscode", "vscode-extensions"]
 
   tasks:
+    - name: Import krew-plugins tasks
+      ansible.builtin.import_tasks: tasks/krew-plugins.yml
+      tags: ["krew"]
+
     - name: Import sudoers tasks
       ansible.builtin.import_tasks: tasks/sudoers.yml
       when: configure_sudoers

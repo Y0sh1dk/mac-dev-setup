@@ -1,0 +1,37 @@
+---
+- name: Check if krew is installed
+  ansible.builtin.command: kubectl krew version
+  register: krew_check
+  changed_when: false
+  failed_when: krew_check.rc != 0
+
+- name: Update plugin index
+  ansible.builtin.command: kubectl krew update
+
+- name: Update existing plugins
+  ansible.builtin.command: kubectl krew upgrade
+
+- name: Check if kubectl krew indexes are already added
+  ansible.builtin.shell: "kubectl krew index list | grep -w '{{ item.name }}.*{{ item.url }}'"
+  register: krew_indexes_check
+  loop: "{{ krew_indexes }}"
+  ignore_errors: true
+
+- name: Add kubectl krew indexes if they are not already added
+  ansible.builtin.command: "kubectl krew index add {{ item.name }} {{ item.url }}"
+  register: krew_add
+  failed_when: krew_add.rc != 0
+  loop: "{{ krew_indexes }}"
+  when: not krew_indexes_check.results | selectattr('stdout', 'search', item.name) | selectattr('stdout', 'search', item.url) | list | length > 0
+
+- name: Check if kubectl krew plugins are available to install
+  ansible.builtin.command: "kubectl krew list"
+  register: krew_plugin_check
+
+- name: Install kubectl krew plugins if they are not already installed
+  ansible.builtin.command: "kubectl krew install {{ item }}"
+  register: krew_plugin_add
+  failed_when: krew_plugin_add.rc != 0
+  changed_when: item not in krew_plugin_add.results
+  loop: "{{ krew_plugins }}"
+  when: item not in krew_plugin_check.stdout
