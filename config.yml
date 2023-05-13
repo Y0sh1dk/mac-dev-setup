@@ -109,6 +109,7 @@ homebrew_installed_packages:
   - terraform-docs
   - checkov
   - awscli
+  - kind
 
 homebrew_taps:
   - homebrew/core
