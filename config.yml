@@ -178,6 +178,7 @@ vscode_extensions:
   - timonwong.shellcheck
   - actboy168.tasks
   - yoavbls.pretty-ts-errors
+  - wix.vscode-import-cost
 
 vscode_extensions_absent: []
 
