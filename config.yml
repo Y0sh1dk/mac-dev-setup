@@ -113,6 +113,7 @@ homebrew_installed_packages:
   - argocd
   - consul
   - hcl2json
+  - go-task
 
 homebrew_taps:
   - homebrew/core
