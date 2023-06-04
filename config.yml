@@ -116,6 +116,7 @@ homebrew_installed_packages:
   - go-task
   - linkerd
   - thanos
+  - openjdk
 
 homebrew_taps:
   - homebrew/core
@@ -147,6 +148,7 @@ homebrew_cask_apps:
   - discord
   - element
   - 1password-cli
+  - temurin
 
 # Krew
 krew_indexes:
