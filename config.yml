@@ -186,6 +186,7 @@ vscode_extensions:
   - actboy168.tasks
   - yoavbls.pretty-ts-errors
   - wix.vscode-import-cost
+  - casualjim.gotemplate
 
 vscode_extensions_absent: []
 
