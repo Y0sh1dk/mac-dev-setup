@@ -148,6 +148,7 @@ homebrew_cask_apps:
   - element
   - 1password-cli
   - temurin
+  - goland
 
 # Krew
 krew_indexes:
