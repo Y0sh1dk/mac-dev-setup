@@ -191,9 +191,8 @@ vscode_extensions:
 
 vscode_extensions_absent: []
 
-vscode_settings:
-  {
-    "editor.rulers": [80, 100, 120],
+vscode_settings: {
+    # "editor.rulers": [80, 100, 120],
     "editor.renderWhitespace": "all",
     "window.zoomLevel": 1,
     "[yaml]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
