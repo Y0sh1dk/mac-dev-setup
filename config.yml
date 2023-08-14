@@ -149,6 +149,9 @@ homebrew_cask_apps:
   - 1password-cli
   - temurin
   - goland
+  - bambu-studio
+  - vlc
+  - microsoft-office
 
 # Krew
 krew_indexes:
