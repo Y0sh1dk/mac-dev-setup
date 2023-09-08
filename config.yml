@@ -116,6 +116,7 @@ homebrew_installed_packages:
   - go-task
   - linkerd
   - thanos
+  - tilt
 
 homebrew_taps:
   - homebrew/core
