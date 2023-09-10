@@ -32,3 +32,7 @@
     user_install: false
     executable: "{{ item.executable | default(omit) }}"
   loop: "{{ gem_packages }}"
+
+- name: Install global golang binaries
+  command: "go install -v {{ item.name }}@{{ item.version }}"
+  loop: "{{ go_packages }}"
