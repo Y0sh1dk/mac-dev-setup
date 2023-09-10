@@ -15,9 +15,23 @@
     - role: elliotweiser.osx-command-line-tools
     - role: geerlingguy.mac.homebrew
       tags: ["homebrew"]
+
     - role: geerlingguy.dotfiles
-      when: configure_dotfiles
+      when: configure_dotfiles_1
+      dotfiles_repo: "{{ dotfiles_repo_1 }}"
+      dotfiles_repo_accept_hostkey: "{{ dotfiles_repo_accept_hostkey_1 }}"
+      dotfiles_repo_local_destination: "{{ dotfiles_repo_local_destination_1 }}"
+      dotfiles_files: "{{ dotfiles_files_1 }}"
       tags: ["dotfiles"]
+    - role: geerlingguy.dotfiles
+      when: configure_dotfiles_2
+      dotfiles_repo_version: "{{ dotfiles_repo_version_2 }}"
+      dotfiles_repo: "{{ dotfiles_repo_2 }}"
+      dotfiles_repo_accept_hostkey: "{{ dotfiles_repo_accept_hostkey_2 }}"
+      dotfiles_repo_local_destination: "{{ dotfiles_repo_local_destination_2 }}"
+      dotfiles_files: "{{ dotfiles_files_2 }}"
+      tags: ["dotfiles"]
+      
     - role: geerlingguy.mac.dock
       when: configure_dock
       tags: ["dock"]
@@ -33,6 +47,10 @@
       tags: ["vscode", "vscode-extensions"]
 
   tasks:
+    - name: Import homebrew tasks
+      ansible.builtin.import_tasks: tasks/homebrew.yml
+      tags: ["homebrew"]
+
     - name: Import krew-plugins tasks
       ansible.builtin.import_tasks: tasks/krew-plugins.yml
       tags: ["krew"]
@@ -56,14 +74,11 @@
       ansible.builtin.import_tasks: tasks/extra-packages.yml
       tags: ["extra-packages"]
 
-    - name: Import homebrew tasks
-      ansible.builtin.import_tasks: tasks/homebrew.yml
-      tags: ["homebrew"]
-
     - name: Import vscode settings tasks
       ansible.builtin.import_tasks: tasks/vscode-settings.yml
       tags: ["vscode", "vscode-settings"]
 
     - name: Import SSH tasks
       ansible.builtin.import_tasks: tasks/ssh.yml
+      when: configure_ssh
       tags: ["ssh"]
