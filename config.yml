@@ -117,6 +117,7 @@ homebrew_installed_packages:
   - linkerd
   - thanos
   - tilt
+  - watch
 
 homebrew_taps:
   - homebrew/core
