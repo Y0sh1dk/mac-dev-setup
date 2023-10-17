@@ -116,6 +116,9 @@ homebrew_installed_packages:
   - go-task
   - linkerd
   - thanos
+  - tilt
+  - watch
+  - dive
 
 homebrew_taps:
   - homebrew/core
@@ -149,6 +152,9 @@ homebrew_cask_apps:
   - 1password-cli
   - temurin
   - goland
+  - bambu-studio
+  - vlc
+  - microsoft-office
 
 # Krew
 krew_indexes:
