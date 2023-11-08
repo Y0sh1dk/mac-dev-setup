@@ -8,7 +8,7 @@
     - name: Include playbook configuration.
       ansible.builtin.include_vars: "{{ item }}"
       with_fileglob:
-        - "{{ playbook_dir }}/config.yml"
+        - "{{ playbook_dir }}/config_anz.yml"
       tags: ["always"]
 
   roles:
@@ -31,13 +31,14 @@
       dotfiles_repo_local_destination: "{{ dotfiles_repo_local_destination_2 }}"
       dotfiles_files: "{{ dotfiles_files_2 }}"
       tags: ["dotfiles"]
-      
+
     - role: geerlingguy.mac.dock
       when: configure_dock
       tags: ["dock"]
     - role: gantsign.oh-my-zsh
       users:
         - username: "{{ ansible_facts['user_id'] }}"
+      when: configure_oh_my_zsh
       tags: ["ohmyzsh"]
     - role: gantsign.visual-studio-code-extensions
       users:
@@ -53,6 +54,7 @@
 
     - name: Import krew-plugins tasks
       ansible.builtin.import_tasks: tasks/krew-plugins.yml
+      when: configure_krew
       tags: ["krew"]
 
     - name: Import sudoers tasks
