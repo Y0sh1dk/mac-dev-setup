@@ -134,6 +134,7 @@ homebrew_installed_packages:
   - kustomize
   - oniguruma
   - fluxcd/tap/flux
+  - istioctl
 
 homebrew_taps:
   - homebrew/core

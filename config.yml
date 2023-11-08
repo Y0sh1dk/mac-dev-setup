@@ -119,6 +119,11 @@ homebrew_installed_packages:
   - tilt
   - watch
   - dive
+  - samuong/alpaca/alpaca
+  - kustomize
+  - oniguruma
+  - fluxcd/tap/flux
+  - istioctl
 
 homebrew_taps:
   - homebrew/core
@@ -155,6 +160,7 @@ homebrew_cask_apps:
   - bambu-studio
   - vlc
   - microsoft-office
+  - google-cloud-sdk
 
 # Krew
 krew_indexes:
@@ -167,6 +173,7 @@ krew_plugins:
   - access-matrix
   - awesome-kubectl-plugins/node-shell
   - awesome-kubectl-plugins/mtail
+  - kuttl
 
 # vs code
 vscode_extensions:
@@ -194,6 +201,8 @@ vscode_extensions:
   - yoavbls.pretty-ts-errors
   - wix.vscode-import-cost
   - casualjim.gotemplate
+  - github.vscode-github-actions
+  - ms-vscode.makefile-tools
 
 vscode_extensions_absent: []
 
@@ -205,6 +214,9 @@ vscode_settings: {
     "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
     "editor.formatOnSave": true,
     "gitlens.codeLens.enabled": false,
+    "indentRainbow.indicatorStyle": "light",
+    "indentRainbow.lightIndicatorStyleLineWidth": 3,
+    "workbench.iconTheme": "material-icon-theme",
   }
 vscode_settings_overwrite: true
 
@@ -232,6 +244,24 @@ pip_packages: []
 # - name: mkdocs
 #   state: present # present/absent/latest, default: present
 #   version: "0.16.3" # default: N/A
+
+go_packages:
+  - name: github.com/cweill/gotests/gotests
+    version: v1.6.0
+  - name: github.com/fatih/gomodifytags
+    version: v1.16.0
+  - name: github.com/josharian/impl
+    version: v1.1.0
+  - name: github.com/haya14busa/goplay/cmd/goplay
+    version: v1.0.0
+  - name: github.com/go-delve/delve/cmd/dlv
+    version: latest
+  - name: honnef.co/go/tools/cmd/staticcheck
+    version: latest
+  - name: golang.org/x/tools/gopls
+    version: latest
+  - name: github.com/Gelio/go-global-update
+    version: latest
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []
