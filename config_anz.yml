@@ -7,7 +7,7 @@ configure_terminal: true
 configure_oh_my_zsh: true
 configure_krew: true
 configure_sudoers: false
-configure_ssh: false
+configure_ssh: true
 configure_osx: true
 configure_dock: false
 
