@@ -63,6 +63,7 @@ dotfiles_files_1:
   - .aliases
   - com.googlecode.iterm2.plist
   - wallpaper.jpg
+  - .k9s
 
 dotfiles_repo_2: https://github.com/Y0sh1dk/anz-dotfiles.git
 dotfiles_repo_accept_hostkey_2: true

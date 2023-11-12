@@ -64,6 +64,7 @@ dotfiles_files:
   - com.googlecode.iterm2.plist
   - wallpaper.jpg
   - .ssh/config
+  - .k9s
 
 homebrew_installed_packages:
   # - ansible # Installed via Pip.
