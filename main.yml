@@ -8,7 +8,7 @@
     - name: Include playbook configuration.
       ansible.builtin.include_vars: "{{ item }}"
       with_fileglob:
-        - "{{ playbook_dir }}/config_anz.yml"
+        - "{{ playbook_dir }}/config.yml"
       tags: ["always"]
 
   roles:

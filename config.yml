@@ -1,9 +1,13 @@
 ---
 downloads: ~/.ansible-downloads/
 
-configure_dotfiles: true
+configure_dotfiles_1: true
+configure_dotfiles_2: false
 configure_terminal: true
 configure_osx: true
+configure_oh_my_zsh: true
+configure_krew: true
+configure_ssh: true
 oh_my_zsh_write_zshrc: false
 
 # Set to 'true' to configure the Dock via dockutil.
@@ -44,7 +48,7 @@ sudoers_custom_config: ""
 
 dotfiles_repo: https://github.com/Y0sh1dk/dotfiles.git
 dotfiles_repo_accept_hostkey: true
-dotfiles_repo_local_destination: ~/Code/dotfiles
+dotfiles_repo_local_destination: ~/Code/github/Y0sh1dk/dotfiles
 dotfiles_files:
   - .zshrc
   - .zlogin
@@ -66,7 +70,7 @@ homebrew_installed_packages:
   - doxygen
   - gettext
   - git
-  - github/gh/gh
+  - gh
   - go
   - gpg
   - httpie
@@ -203,6 +207,7 @@ vscode_extensions:
   - casualjim.gotemplate
   - github.vscode-github-actions
   - ms-vscode.makefile-tools
+  - github.copilot
 
 vscode_extensions_absent: []
 
@@ -261,6 +266,8 @@ go_packages:
   - name: golang.org/x/tools/gopls
     version: latest
   - name: github.com/Gelio/go-global-update
+    version: latest
+  - name: github.com/fiatjaf/jiq/cmd/jiq
     version: latest
 
 # Glob pattern to ansible task files to run after all other tasks are finished.

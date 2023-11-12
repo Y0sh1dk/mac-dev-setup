@@ -7,7 +7,7 @@ configure_terminal: true
 configure_oh_my_zsh: true
 configure_krew: true
 configure_sudoers: false
-configure_ssh: true
+configure_ssh: false
 configure_osx: true
 configure_dock: false
 
@@ -81,7 +81,7 @@ homebrew_installed_packages:
   - doxygen
   - gettext
   - git
-  - github/gh/gh
+  - gh
   - go
   - gpg
   - httpie
@@ -118,7 +118,6 @@ homebrew_installed_packages:
   - ansible-lint
   - shfmt
   - fortune
-  - tfenv
   - tflint
   - terraform-docs
   - checkov
@@ -204,6 +203,7 @@ vscode_extensions:
   - casualjim.gotemplate
   - github.vscode-github-actions
   - ms-vscode.makefile-tools
+  - github.copilot
 
 vscode_extensions_absent: []
 
@@ -261,6 +261,8 @@ go_packages:
   - name: honnef.co/go/tools/cmd/staticcheck
     version: latest
   - name: golang.org/x/tools/gopls
+    version: latest
+  - name: github.com/fiatjaf/jiq/cmd/jiq
     version: latest
 
 # Glob pattern to ansible task files to run after all other tasks are finished.
