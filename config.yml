@@ -46,9 +46,10 @@ sudoers_custom_config: ""
 #   # Allow users in admin group to use sudo with no password.
 #   %admin ALL=(ALL) NOPASSWD: ALL
 
-dotfiles_repo: https://github.com/Y0sh1dk/dotfiles.git
-dotfiles_repo_accept_hostkey: true
-dotfiles_repo_local_destination: ~/Code/github/Y0sh1dk/dotfiles
+dotfiles_repo_1: https://github.com/Y0sh1dk/dotfiles.git
+dotfiles_repo_accept_hostkey_1: true
+dotfiles_repo_version_1: master
+dotfiles_repo_local_destination_1: ~/Code/github/Y0sh1dk/dotfiles
 dotfiles_files:
   - .zshrc
   - .zlogin
