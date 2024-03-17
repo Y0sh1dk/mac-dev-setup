@@ -49,6 +49,7 @@ sudoers_custom_config: ""
 
 dotfiles_repo_1: https://github.com/Y0sh1dk/dotfiles.git
 dotfiles_repo_accept_hostkey_1: true
+dotfiles_repo_version_1: master
 dotfiles_repo_local_destination_1: ~/Code/github/Y0sh1dk/dotfiles
 dotfiles_files_1:
   - .zshrc
@@ -64,6 +65,7 @@ dotfiles_files_1:
   - wallpaper.jpg
   - Brewfile
   - Brewfile.lock.json
+  - .k9s
 
 dotfiles_repo_2: https://github.com/Y0sh1dk/anz-dotfiles.git
 dotfiles_repo_accept_hostkey_2: true
@@ -84,7 +86,7 @@ homebrew_installed_packages:
   - doxygen
   - gettext
   - git
-  - github/gh/gh
+  - gh
   - go
   - gpg
   - httpie
@@ -121,7 +123,6 @@ homebrew_installed_packages:
   - ansible-lint
   - shfmt
   - fortune
-  - tfenv
   - tflint
   - terraform-docs
   - checkov
@@ -137,6 +138,7 @@ homebrew_installed_packages:
   - kustomize
   - oniguruma
   - fluxcd/tap/flux
+  - istioctl
 
 homebrew_taps:
   - homebrew/core
@@ -206,6 +208,7 @@ vscode_extensions:
   - casualjim.gotemplate
   - github.vscode-github-actions
   - ms-vscode.makefile-tools
+  - github.copilot
 
 vscode_extensions_absent: []
 
@@ -263,6 +266,8 @@ go_packages:
   - name: honnef.co/go/tools/cmd/staticcheck
     version: latest
   - name: golang.org/x/tools/gopls
+    version: latest
+  - name: github.com/fiatjaf/jiq/cmd/jiq
     version: latest
 
 # Glob pattern to ansible task files to run after all other tasks are finished.

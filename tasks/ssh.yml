@@ -9,23 +9,3 @@
     src: "{{ ansible_facts['user_dir'] }}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
     dest: "{{ ansible_facts['user_dir'] }}/.1password/agent.sock"
     state: link
-
-- name: Ensure ssh folder exists
-  ansible.builtin.file:
-    path: "{{ ansible_facts['user_dir'] }}/.ssh"
-    state: directory
-    mode: "0700"
-
-- name: Ensure ssh config file exists
-  ansible.builtin.copy:
-    content: ""
-    dest: "{{ ansible_facts['user_dir'] }}/.ssh/config"
-    force: false
-
-- name: Update ssh config to add 1Password ssh-agent
-  ansible.builtin.blockinfile:
-    path: "{{ ansible_facts['user_dir'] }}/.ssh/config"
-    marker: "### {mark} ANSIBLE MANAGED BLOCK ###"
-    block: |
-      Host *
-        IdentityAgent "{{ ansible_facts['user_dir'] }}/.1password/agent.sock"
