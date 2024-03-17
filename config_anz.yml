@@ -62,6 +62,8 @@ dotfiles_files_1:
   - .aliases
   - com.googlecode.iterm2.plist
   - wallpaper.jpg
+  - Brewfile
+  - Brewfile.lock.json
 
 dotfiles_repo_2: https://github.com/Y0sh1dk/anz-dotfiles.git
 dotfiles_repo_accept_hostkey_2: true
@@ -69,6 +71,7 @@ dotfiles_repo_version_2: main
 dotfiles_repo_local_destination_2: ~/Code/github/Y0sh1dk/anz-dotfiles
 dotfiles_files_2:
   - .anz
+  - .npmrc
   - .gitconfig
   - .git-templates
   - .config/1Password
