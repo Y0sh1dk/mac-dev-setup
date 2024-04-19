@@ -8,9 +8,12 @@
     - name: Include playbook configuration.
       ansible.builtin.include_vars: "{{ item }}"
       with_fileglob:
-        - "{{ playbook_dir }}/config_anz.yml"
+        - "{{ playbook_dir }}/config.yml"
       tags: ["always"]
-
+    - name: Create SSH Directory
+      file:
+        path: "{{ lookup('env', 'HOME') }}/.ssh/"
+        state: directory
   roles:
     - role: elliotweiser.osx-command-line-tools
     - role: geerlingguy.mac.homebrew

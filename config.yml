@@ -50,7 +50,7 @@ dotfiles_repo_1: https://github.com/Y0sh1dk/dotfiles.git
 dotfiles_repo_accept_hostkey_1: true
 dotfiles_repo_version_1: master
 dotfiles_repo_local_destination_1: ~/Code/github/Y0sh1dk/dotfiles
-dotfiles_files:
+dotfiles_files_1:
   - .zshrc
   - .zlogin
   - .p10k.zsh
@@ -76,14 +76,11 @@ homebrew_installed_packages:
   - gh
   - go
   - gpg
-  - httpie
   - iperf
   - libevent
   - sqlite
-  - mcrypt
   - nmap
   - node
-  - nvm
   - php
   - ssh-copy-id
   - cowsay
@@ -91,7 +88,6 @@ homebrew_installed_packages:
   - openssl
   - pv
   - wget
-  - wrk
   - zsh
   - pokemonsay
   - git-extras
@@ -128,30 +124,24 @@ homebrew_installed_packages:
   - dive
   - samuong/alpaca/alpaca
   - kustomize
-  - oniguruma
   - fluxcd/tap/flux
   - istioctl
 
 homebrew_taps:
-  - homebrew/core
-  - homebrew/cask
   - possatti/possatti
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - chromedriver
   - docker
-  - firefox
   - google-chrome
   - slack
-  - transmit
   - iterm2
   - visual-studio-code
   - spotify
   - 1password
   - rectangle
   - stats
-  - amazon-workspaces
   - adobe-acrobat-reader
   - google-drive
   - meld
@@ -160,9 +150,7 @@ homebrew_cask_apps:
   - whatsapp
   - zoom
   - discord
-  - element
   - 1password-cli
-  - temurin
   - goland
   - bambu-studio
   - vlc
