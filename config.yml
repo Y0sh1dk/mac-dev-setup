@@ -156,6 +156,7 @@ homebrew_cask_apps:
   - vlc
   - microsoft-office
   - google-cloud-sdk
+  - obsidian
 
 # Krew
 krew_indexes:
